@@ -88,7 +88,7 @@ First, we need to have all the necessary tools for video encoding, demuxing and 
   ```eac3to D: 2) 1:chap.txt 2:left.h264 3:right.h264 4:en.dts -core 7:es.ac3 9:en.sup 11:es.sup```  
   This command tells `eac3to` to extract (demux) form the `D:` drive, from the `2)` playlist, the `1:` track as a chapter file, the `2:` track as a left eye H264 video stream, the `3:` track as the right eye H264 stream (which is not an standard H264 stream but an *AVC Stereo* stream), the `4:` English audio track on DTS Core format (core means 5.1), the `7:` Spanish audio track on AC3/Dolby format, the `9:` English subtitles track, and finally the `11:` Spanish subtitles track:  
   ![Playlists Info](img/15-demux.png)
-7. The extracted file tracks should look like this:
+7. The extracted file tracks should look like this:  
   ![Demuxed Files](img/17-bdrip.png)
 
 
