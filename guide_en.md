@@ -387,3 +387,31 @@ Audio........: English 448 Kbps CBR 6 chnls AC3
 Audio........: Spanish 448 Kbps CBR 6 chnls AC3
 ```
 
+## Results
+
+On XBMC
+![XBMC](img/61-XBMC.png)
+
+On QuickTime OS X
+![QuickTime Lang](img/59-QuickTime.png)
+![QuickTime Chap](img/60-QuickTime.png)
+
+On iTunes
+![iTunes](img/58-iTunes.png)
+
+On Windows and OS X
+![OS X](img/57-end-mac.png)
+![Windows](img/56-end-pc.png)
+
+SBS On VLC Windows
+![VLC](img/62-VLC.png)
+
+SBS Interlaced on Stereoscopic Player Windows
+![iOS](img/63-Stereoscopic-Player.png)
+
+On iOS
+![iOS](img/65-iPhone5_1.png)
+![iOS](img/66-iPhone5_2.png)
+![iOS](img/67-iPhone5_3.png)
+![iOS](img/69-iPhone5_5.png)
+
