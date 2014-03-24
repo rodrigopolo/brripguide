@@ -250,11 +250,11 @@ Subtitles or captions are optional. The subtitles we extract from a Blu-ray Disc
 
 **SubExtractor** is fast and easy but sometimes the result isn't great, here is a video showing how to do the OCR:
 
-VIDEO_SUBEXTRACTOR
+[![How to use SubExtractor](http://img.youtube.com/vi/ld_HrSLwytg/0.jpg)](http://youtu.be/ld_HrSLwytg)
 
 **SupRip** is less fancy than SubExtractor, with a very simple interface, the OCR process takes longer than with SubExtractor but the results are better, here is a video showing how to do the OCR:
 
-VIDEO_SUPRIP
+[![How to use SupRip](http://img.youtube.com/vi/3LwET2f1P-w/0.jpg)](http://youtu.be/3LwET2f1P-w)
 
 > **IMPORTANT NOTE**: make sure to save your subtitles on UTF8 encoding, you can use any text editor to do exactly that, open your SRT file in your text editor (notepad for example) and then choose save the file choosing the UTF8 encoding on the "Save As" dialog.
 
@@ -333,7 +333,7 @@ Subs.........: English, Spanish.
 
 To create a M4V file compatible with *Apple TV 3* and most modern iOS devices we process the MKV file we just created in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv) with the commercial app [iFlicks 2](http://itunes.apple.com/us/app/iflicks-2/id731062389), to avoid video re-encoding by this app always use `X264 High Profile, Level 4` when encoding video. In this guide I'll use the `Thor - The Dark World (2013).mkv` we just make in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv), check the following video on how to use iFlicks 2:
 
-VIDEO_IFLICKS
+[![How to use iFlicks](http://img.youtube.com/vi/xatcZ0PGxiE/0.jpg)](http://youtu.be/xatcZ0PGxiE)
 
 *iFlicks 2* automatically create the stereo version of each Dolby audio track, it adds all the necessary metadata, cover, and remux the movie as a M4V video ready to be used on iTunes or any modern iOS device.
 
