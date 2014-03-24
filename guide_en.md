@@ -248,11 +248,11 @@ That's all with the audio encoding, the original English audio track uses 1.18Gi
 ### Subtitles
 Subtitles or captions are optional. The subtitles we extract from a Blu-ray Disc are a sequence of images, but most video players doesn't support them or work better with text subtitles, and text subtitles are way smaller than the originals. To "convert" the original subtitles we have to make an [OCR](http://en.wikipedia.org/wiki/Optical_character_recognition) of the original subtitles, for that task you can use either "SubExtractor" or "SupRip".
 
-**SubExtractor** is fast and easy but sometimes the result isn't great, here is a video showing how to do the OCR:
+**SubExtractor** is fast and easy but sometimes the result isn't great, [here is a video showing how to do the OCR](http://youtu.be/ld_HrSLwytg):
 
 [![How to use SubExtractor](http://img.youtube.com/vi/ld_HrSLwytg/0.jpg)](http://youtu.be/ld_HrSLwytg)
 
-**SupRip** is less fancy than SubExtractor, with a very simple interface, the OCR process takes longer than with SubExtractor but the results are better, here is a video showing how to do the OCR:
+**SupRip** is less fancy than SubExtractor, with a very simple interface, the OCR process takes longer than with SubExtractor but the results are better, [here is a video showing how to do the OCR](http://youtu.be/3LwET2f1P-w):
 
 [![How to use SupRip](http://img.youtube.com/vi/3LwET2f1P-w/0.jpg)](http://youtu.be/3LwET2f1P-w)
 
@@ -331,7 +331,7 @@ Subs.........: English, Spanish.
 
 #### For Apple TV and modern iOS devices
 
-To create a M4V file compatible with *Apple TV 3* and most modern iOS devices we process the MKV file we just created in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv) with the commercial app [iFlicks 2](http://itunes.apple.com/us/app/iflicks-2/id731062389), to avoid video re-encoding by this app always use `X264 High Profile, Level 4` when encoding video. In this guide I'll use the `Thor - The Dark World (2013).mkv` we just make in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv), check the following video on how to use iFlicks 2:
+To create a M4V file compatible with *Apple TV 3* and most modern iOS devices we process the MKV file we just created in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv) with the commercial app [iFlicks 2](http://itunes.apple.com/us/app/iflicks-2/id731062389), to avoid video re-encoding by this app always use `X264 High Profile, Level 4` when encoding video. In this guide I'll use the `Thor - The Dark World (2013).mkv` we just make in [the previous step](#remux-for-most-smart-tvs-and-preparing-for-apple-tv), check [the following video on how to use iFlicks 2](http://youtu.be/xatcZ0PGxiE):
 
 [![How to use iFlicks](http://img.youtube.com/vi/xatcZ0PGxiE/0.jpg)](http://youtu.be/xatcZ0PGxiE)
 
