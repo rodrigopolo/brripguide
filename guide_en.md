@@ -13,7 +13,7 @@ The purpose of this guide is to share the knowhow of video encoding so you can c
 Yes, there are plenty of tools that can achieve the same goals with a single click, but this guide is designed to give you full control over every single step of the encoding process, achieve higher quality, get smaller and more compatible files, use the best tools available and almost 99% free/libre software, no unwanted extras included in the files, but most important, this guide will show you techniques that are bullet proof and 100% tested, the encoded files will work great on any Smart TV, Apple TV, XBMC, Stereoscopic Player, PowerDVD, etc. showing perfect results and quality.
 
 ### System Requirements
-  * **Windows**: I'm running all this software on Windows 8.1 x64 on a MacBook Pro Retina, sadly, almost of this software only runs on Windows.
+  * **Windows**: I'm running all this software on Windows 8.1 x64 on a MacBook Pro Retina, sadly, almost all of this software only runs on Windows.
   * **A Blu-ray Disc Drive**: I'm using a USB External Blu-ray Disc Drive, there are plenty of those in [Amazon](http://amzn.to/PSc9Xh)
   * **OS X**: For those who want to have an iTunes / Apple TV Compatible format.
   * **Free disk space**: at last 50GiB
@@ -54,7 +54,7 @@ First, we need to have all the necessary tools for video encoding, demuxing and 
 2. Install HandBrake.
 3. Create a folder to store all the free software that doesn't require installation, for this guide I'm going to use the folder `c:\brdsoft`.
 4. Add the `c:\brdsoft` to your system path:
-  1. Right click on the bottom left corner of Windows to access the menu and then click "System":  
+  1. Right click on the bottom left corner of Windows 8.1 to access the menu and then click "System":  
   ![Windows Menu](img/01-menu.png)
   2. On the "System" window click on the "Advanced system settings":  
   ![System](img/02-system.png)
@@ -64,11 +64,11 @@ First, we need to have all the necessary tools for video encoding, demuxing and 
   ![Environment Variables](img/04-Environment_Variables.png)
   5. Click on the "Ok" button and close all windows:  
   ![Edit Env. Variables](img/05-Edit_User_Variable.png)
-5. Unzip the `eac3to327.zip` file into the directory:  
+5. Uncompress the `eac3to327.zip` file into the directory:  
   ![Files](img/06-brdsoft.png)
-6. Unzip the `SubExtractor1031.zip` file into the directory.
-7. Unrar the `suprip-1.16.rar` file into the directory.
-8. Unzip (7zip) `mkvtoolnix-amd64-6.8.0.7z` into directory:  
+6. Uncompress the `SubExtractor1031.zip` file into the directory.
+7. Uncompress the `suprip-1.16.rar` file into the directory.
+8. Uncompress `mkvtoolnix-amd64-6.8.0.7z` into directory:  
   ![Files](img/09-brdsoft.png)
 9. Create a folder for your rip, in this guide I'll use: `C:\bdrip`:  
   ![Folder](img/10-folder.png)
@@ -104,7 +104,7 @@ First, we need to have all the necessary tools for video encoding, demuxing and 
 
 1. For encoding we will use *HandBrake*, but first we have to give *HandBrake* a video format that can understand, *HandBrake* can't encode a H.264 file directly, so we have to mux the file into an MKV container, open `mmg.exe` on the `C:\brdsoft\mkvtoolnix` folder.  
 ![mkvtoolnix](img/18-mkvtoolnix.png)
-2. drag your `left.h264` track file into the *mkvmerge GUI* window:  
+2. Drag your `left.h264` track file into the *mkvmerge GUI* window:  
 ![mkvtoolnix](img/19-drag.png)
 3. After dragging your track, *mkvmerge GUI* will automatically define an output file name for your video, just click on the "Start muxing" button and wait until it finishes:  
 ![mkvtoolnix muxing](img/20-dragged.png)
@@ -122,11 +122,11 @@ First, we need to have all the necessary tools for video encoding, demuxing and 
 
 #### 3D SBS Video Encoding
 
-Side-by-side 3D encoding is something special, 3D Blu-ray Discs have two different video streams for each eye, so the encoding requires to merge the "right" and "left" video streams into one video, then squeeze both videos to fit the original video dimension, but there is something tricky, the "right" video stream isn't a typical H.264 stream but a *"Stereo H.264"*, so for that reason we need some extra software to decode it
+Side-by-side 3D encoding is something special, 3D Blu-ray Discs have two different video streams for each eye, so the encoding requires to merge the "right" and "left" video streams into one video, then squeeze both videos to fit the original video dimension, but there is something tricky, the "right" video stream isn't a typical H.264 stream but a *"Stereo H.264"*, so for that reason we need some extra software to decode it.
 
-We can't use *HandBreak* for video encoding because [it doesn't handle *AviSynth*](https://forum.handbrake.fr/viewtopic.php?f=23&t=21092#p97222) and because *HandBreak* doesn't have the availability to merge two videos into one video (compositing) so instead we use *X264* directly.
+We can't use *HandBreak* for video encoding because [it doesn't handle *AviSynth*](https://forum.handbrake.fr/viewtopic.php?f=23&t=21092#p97222) and because *HandBreak* doesn't have the availability to merge two videos into one video, so instead we use *X264* directly.
 
-*AviSynth* is a [frameserver](http://en.wikipedia.org/wiki/Frameserver) script based, it can read, decode and serve the resulting video frames to any application that support frameservers (frame client), we use it to decode and merge the left and right video tracks, the kind of thing you can achieve with Premiere or Vegas, but free.
+*AviSynth* is a script based [frameserver](http://en.wikipedia.org/wiki/Frameserver), it can read, decode and serve the resulting video frames to any application that support frameservers (frame client), we use it to decode and merge the left and right video tracks, the kind of thing you can achieve with Premiere or Vegas, but free.
 
 ##### Software and Scripts Required for SBS Video Encoding
 
