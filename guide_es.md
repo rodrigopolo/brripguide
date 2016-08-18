@@ -1,5 +1,12 @@
 # Ultimate Blu-ray Disc (3D) Ripping Guide
 
+#### Update 2016
+
+* Encontré una forma más simple de convertir los subtítulos y de codificar vídeo 3D, ver la [actualización](update.md) **en inglés**.
+* [Estos idiotas](http://best-tablet-converter.com/2014/11/22/ultimate-3d-blu-ray-ripping/) se están robando mi título e imágenes.
+* Si encuentras esta información útil, puedes apoyar donando [en este vínculo](http://rodrigopolo.com/about/wp-stream-video/donate).
+
+
 ### Propósito
 El propósito de esta guía es compartir el conocimiento necesario para codificar vídeo de manera que el usuario pueda codificar sus propios discos Blu-ray y ver películas en una mayor gama de dispositivos que no son compatibles o no tienen un dispositivo Blu-ray usando casi exclusivamente software libre.
 
@@ -28,10 +35,7 @@ El título del disco Blu-ray que utilizaré en esta guía es "[Thor: The Dark Wo
   [Direct Download](http://handbrake.fr/rotation.php?file=HandBrake-0.9.9-1_x86_64-Win_GUI.exe).
 * [eac3to](http://www.videohelp.com/tools/eac3to): Para obtener información del disco, extraer las pistas y codificar el audio - gratuito,
   [Direct Download](http://www.videohelp.com/download/eac3to327.zip).
-* [SubExtractor](http://www.videohelp.com/tools/SubExtractor): Para convertir archivos de subtítulos `.bup` a archivos `.srt` vía (OCR) - gratuito,
-  [Direct Download](http://www.videohelp.com/download/SubExtractor1031.zip).
-* [SupRip](http://www.videohelp.com/tools/SupRip): Para convertir archivos de subtítulos `.bup` a archivos `.srt` vía (OCR) - gratuito,
-  [Direct Download](http://www.videohelp.com/download/suprip-1.16.rar).
+* [SubtitleEdit](https://github.com/SubtitleEdit/subtitleedit/releases): To convert `.bup` subtitles into `.srt` subtitles (OCR) - free,
 * [MKVToolNix](http://www.fosshub.com/MKVToolNix.html): Para unir todas las pistas  - gratuito,
   [Direct Download](http://www.fosshub.com/download/mkvtoolnix-amd64-6.8.0.7z).
 
@@ -122,98 +126,8 @@ Primero, tenemos que tener instaladas todas las herramientas para codificación 
 10. Cuando la coficicación termine realizaremos la [codificación de audio](#codificaci%C3%B3n-de-audio).
 
 #### Para vídeo 3D SBS
+Revisa la actualización **en inglés** en este archivo: [update.md](update.md).
 
-La codificación de vídeo Side-by-side 3D (vídeo lado-a-lado) es un tanto especial, los discos Blu-ray 3D tienen dos secuencias de vídeo diferentes, una para cada ojo, así que la codificación requiere unir la secuencia de vídeo "derecha" e "izquierda" en un solo vídeo, luego compacta el ancho de ambos vídeos para encajar el ancho original, pero hay algo que requiere maña, la secuencia de vídeo "derecha" no es la típica secuencia H264 sino una secuencia *"Stereo H264"*, así que debido a esta razón necesitamos cierto software extra para decodificarlo.
-
-No podemos utilizar *HandBreak* para codificar vídeo debido a que este [no puede procesar vídeos de *AviSynth*](https://forum.handbrake.fr/viewtopic.php?f=23&t=21092#p97222) y debido a que *HandBreak* no puede mezclar dos vídeos en un sólo video, así que en su lugar usaremos *X264* directamente.
-
-*AviSynth* es un [frameserver](http://en.wikipedia.org/wiki/Frameserver) basado en scripts, puede leer, decodificar y servir el resultado procesado a cualquier aplicación que tenga soporte a frameservers (frame client), lo usaremos para decodificar y mezclar las pistas de vídeo "derecha" e "izquierda", el tipo de cosas Premiere o Vegas hacen pero de forma gratuita.
-
-##### Software y Scripts Requeridos Para Codificación De Vídeo SBS
-
-* [X264](http://www.videolan.org/developers/x264.html): Para codificación - gratuito,
-  [Direct Download](http://download.videolan.org/pub/videolan/x264/binaries/win32/x264-r2409-d6b4e63.exe).
-* [AviSynth](http://avisynth.nl/index.php/Main_Page): Para mezclar ambos vídeos - gratuito,
-  [Direct Download](http://sourceforge.net/projects/avisynth2/files/latest/download).
-* [ffdshow](http://www.videohelp.com/tools/ffdshow) - Requerido para decodificación y codificación H264 - gratuito,
-  [Direct Download](http://www.videohelp.com/download/ffdshow_rev4530_20140209_clsid.exe).
-* [MVC Decoder](http://www.fbx.ro/4cbzkmk91j46j3v3): Para decodificar Stereo H264 - gratuito,
-  [Direct Download](https://mega.co.nz/#!mBVVyLYY!tpfVQWYmZjChLL3zmu5VaaPAODdAI-IVf2FSaTUCVjA).
-* [Pantarheon 3D AviSynth Toolbox](http://www.pantarheon.org/AviSynth3DToolbox/): Para procesar las funciones estereoscópicas en *AviSynth* - free,
-  [Direct Download](http://www.pantarheon.org/AviSynth3DToolbox/msi/).
-
-##### Preparación del Sistema
-
-* Instala AviSynth.
-* Instala ffdshow.
-* Instala Pantarheon 3D AviSynth Toolbox.
-* Descarga y descomprime x264 para "win32" (esto es importante, no utilices la versión X64 ya que es incomparible con AviSynth).
-* Renombra el archivo `x264-r2409-d6b4e63.exe` a `x264.exe`
-* Mueve el archivo `x264.exe` a el folder `c:\brdsoft` así x264 puede ser invocado desde cualquier parte del sistema:  
-![X264 on brdsoft folder](img/30-brdsoft.png)
-* Descarga y descomprime `H264StereoSource_a2.rar` **y pon el contenido en el folder `c:\brdsoft`**:  
-![H264StereoSource](img/31-bdrip.png)
-
-
-##### Configuración del Script de AviSynth
-
-> **MUY IMPORTANTE**: Recuerdas que apuntamos la duración del vídeo y los cuadros por segundo? necesitamos de estos datos porque las secuencias de vídeo H264 están en crudo (no contienen la información de vídeo embebida), necesitamos proveer la duración del vídeo en el total de cuadros a AviSynth para que este lo pueda procesar, para esto requerimos de matemática simple, nuestro vídeo tiene una duración de `1:52:03`, convirtamos eso a segundos:
-
-```
-01h = 60m
-60m + 52m = 112m
-112m * 60s = 6720s
-6720s + 03s = 6723s
-```
-
-Ahora que sabemos la duración en segundos calculamos el total en cuadros, esto es bastante sencillo, la película corre a 23.976 cuadros por segundo, pero debido a que este número no es un número preciso muchas veces se representa en fórmula, esta puede ser (24000/1001)` or `(24/1.001)`, así que nuestro cálculo sería:
-
-```
-6720 * (24/1.001) = 161118
-```
-
-Ahora, editemos el archivo `sample.avs` en cualquier editor de texto, el archivo original, el contenido del archivo original es el siguiente:
-
-```
-LoadPlugin("H264StereoSource.dll")
-H264StereoSource("decoder.cfg",161214).AssumeFPS(24000,1001)
-```
-
-Modificalo a manera que quede como el siguiente código, cambia el total de cuadros por el resultado del cálculo anterior y los números del `AssumeFPS` según tus cuadros por segundo:
-
-```
-LoadPlugin("H264StereoSource.dll")
-lv = directshowsource("left.mkv", audio=false)
-rv = H264StereoSource("decoder.cfg",161118).AssumeFPS(24000,1001)
-LeftRight3DReduced(lv, rv)
-```
-
-Acá la explicación de qué hace el archivo `sample.avs` línea por línea:
-
-1. Carga el plug-in `H264StereoSource.dll` para leer la pista "derecha" o "Stereo".
-2. Luego crea una instancia de la pista "izquierda" en base al archivo MKV que creamos con anterioridad.
-3. Luego crea una instancia ´del vídeo "derecho" basado en el archivo `decoder.cfg` el cual lee ambos archivos `left.h264` y `right.h264` para generar el vídeo de la "derecha".
-4. Finalmente utiliza la función de *Pantarheon 3D AviSynth Toolbox* para unir ambos vídeos y reducirlos a manera que ocupen la misma dimensión.
-
-> **IMPORTANTE**: No olvides inclír el total en cuadros en la tercera línea, este es el número que obtuvimos en el cálculo anterior, en nuestro caso el número sería `161118`.
-
-Ahora salva y cierra el archivo `sample.avs`, empecemos la codificación.
-
-##### Codificación
-
-Para codificar la secuencia de vídeo del archivo `sample.avs` de *AviSynth* usaremos x264, el siguiente comando utiliza casi la misma configuración del preset de `Apple TV 3` en *HandBrake*, escribe el siguiente comando en la Consola de Comandos y presiona [ENTER] para iniciar la codificación:
-
-```
-x264 --thread-input --preset medium --profile high --level 4 --crf 20 --tune film --ref 3 --bframes 3 --b-pyramid normal --direct spatial --subme 7 --merange 16 --b-adapt 2 --partitions p8x8,b8x8,i4x4 --vbv-bufsize 31250 --vbv-maxrate 25000 --output sbs.h264 sample.avs
-```
-
-![x264.exe encoding](img/32-encoding.png)
-
-> **Nota**: La tarea de coficicación puede tomar su tiempo, esto es debido a que se están decodificando ambos vídeos en alta definición, luego ambos están siendo unidos, compresos en la misma dimensión de ancho, y luego el resultado es codificado, esta tarea requiere bastante poder del CPU y en mi caso tomó un total de 7 horas, 14 minutos y 15 segudos para terminar.
-
-Cuando la codificación termine encontrarás el archivo `sbs.h264` en tu folder de codificación, este es un archivo de vídeo Side-by-side, ahora [codifiquemos el audio](#codificaci%C3%B3n-de-audio).
-
-![SBS Encoded File](img/33-result.png)
 
 ### Codificación de Audio
 
@@ -246,25 +160,7 @@ Aquí termina la codificación de audio, el archivo original del audio en inglé
 > **Dato curioso**: "eac3to" codifica audio Dolby utilizando "Aften", la cual es una librería de código libre para codificar audio Dolby, el nombre "Aften" viene de "A Fifty-Two ENcoder", Dolby es también conocido como un formato de audio A52.
 
 ### Subtítulos
-Los subtítulos o leyendas son opcionales. Los subtítulos que extrajimos del disco Blu-ray Disc se encuentrasn en un formato de secuencia de imáen, sin embargo la mayoría de reproductores no reconocen este formato o trabajan mejor con subtítulos en formato de texto, al mismo tiempo los subtítulos de texto ocupan muchísimo menos espacio que los originales. Para "convertir" los subtítulos originales debemos de realizar un [OCR](http://en.wikipedia.org/wiki/Optical_character_recognition) de los subtítulos originales, para esta tarea podemos utilizar ya sea "SubExtractor" o "SupRip".
-
-**SubExtractor** es rápido y sencillo pero en ocasiones los resultados no son excelentes, [acá un vídeo mostrando cómo realizar el OCR](http://youtu.be/ld_HrSLwytg):
-
-[![How to use SubExtractor](http://img.youtube.com/vi/ld_HrSLwytg/0.jpg)](http://youtu.be/ld_HrSLwytg)
-
-**SupRip** es menos sofisticado que SubExtractor con una interfaz m'as simple, el proceso de OCR toma un poco m'as de tiempo pero el resultado es superior, [acá un vídeo mostrando cómo realizar el OCR](http://youtu.be/3LwET2f1P-w):
-
-[![How to use SupRip](http://img.youtube.com/vi/3LwET2f1P-w/0.jpg)](http://youtu.be/3LwET2f1P-w)
-
-> **NOTA IMPORTANTE**: asegúrate de guardar tus subtítulos en codificación UTF8, puedes utilizar cualquier editor de texto para hacer esto, abre tu editor de texto (notepad por ejemplo) y luego salva el archivo seleccionando guardarlo con codificación UTF8 en el diálogo de "Salvar como".
-
-![Notepad Save as](img/39-srt.png)
-
-![Notepad Encoding](img/40-srt.png)
-
-> *PASO OPCIONAL*: Si quieres asegurarte que tus subtítulos luzcan bien o eliminar errores, utiliza [Subtitle Workshop 2.51](http://www.urusoft.net/downloads.php?lang=1), pero ten cuidado, este programa sólo lee archivos codificados como ANSI, así que antes de abrir tu SRT asegurate de codificarlo como ANSI con un editor de texto, luego, cuando termines de arreglarlos, guardalos de nuevo en codificación UTF8. Si quieres evitar errores de codificación, utiliza siempre UTF8.
-
-![Subtitle Workshop](img/41-subtitle.png)
+Revisa la actualización en inglés en este archivo [update.md](update.md).
 
 ### Remuxing
 Ahora que ya tenemos las pistas de vídeo y audio codificadas procedemos a unirlas, esta acción es comúnmente conocida como "muxing" (multiplexing) o "remuxing", para esta tarea utilizaremos *mkvmerge GUI*, abre `mmg.exe` el cuál se encuentra en el folder `C:\brdsoft\mkvtoolnix`.
@@ -426,3 +322,4 @@ En iOS
 
 ![iOS](img/69-iPhone5_5.png)
 
+Si encuentras esta información útil, puedes apoyar donando [en este vínculo](http://rodrigopolo.com/about/wp-stream-video/donate)
