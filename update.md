@@ -41,6 +41,11 @@ FRIMDecode64 -i:mvc left.h264 right.h264 -sbs -o - | FFmpeg -y -f rawvideo -s:v 
 
 After the encoding proccess you'll have a half-side-by-side H.264/MP4 file ready to be combined with your other movie tracks as described on the [main encoding guide](guide_en.md).
 
+Just as an extra note, if you want to encode just the right side, here is what I did:
+```
+FRIMDecode64 -i:mvc left.h264 right.h264 -o NUL -o - | FFmpeg -y -f rawvideo -s:v 1920x1080 -r 24000/1001 -i - -pix_fmt yuv420p -c:v libx264 -preset medium -crf 22 -an right_side.mp4
+```
+
 ## Subtitles
 Forget about SubExtractor and SupRip, use **Subtitle Edit** instead, it can do anything related to subtitles, OCR from many formats, it supports multiple languages, it has dictionaries, it is open source and FLOSS, you can download it from the following link:
 
