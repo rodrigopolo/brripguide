@@ -320,4 +320,4 @@ On iOS
 
 ![iOS](img/69-iPhone5_5.png)
 
-If you find this information useful, you can support by donating on [this link](http://rodrigopolo.com/about/wp-stream-video/donate).
+If you find this information useful, you can support by donating on [this link](http://paypal.me/rodrigopolo).

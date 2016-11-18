@@ -322,4 +322,4 @@ En iOS
 
 ![iOS](img/69-iPhone5_5.png)
 
-Si encuentras esta información útil, puedes apoyar donando [en este vínculo](http://rodrigopolo.com/about/wp-stream-video/donate)
+Si encuentras esta información útil, puedes apoyar donando [en este vínculo](http://paypal.me/rodrigopolo).
