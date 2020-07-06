@@ -173,6 +173,8 @@ Ahora depende de tí si deseas nombrar tus capítulos como `Chapter 1`, `Chapter
 
 Luego de nombrar tus capítulos guarda el archivo XML de capítulos haciendo clic en el menú "`Chapter Editor->Save as`", yo utilicé el nombre de archivo `chap.xml`.
 
+![Subtitle Drag](img/46-ch.png)
+
 Actualización: La nueva versión de `MKVToolNix` no transforma automáticamente el archivo `chap.txt`, sin embargo, con un editor como Sublime Text, se puede convertir fácilmente en XML usando el editor multi-línea.
 
 ```txt
@@ -193,8 +195,6 @@ Actualización: La nueva versión de `MKVToolNix` no transforma automáticamente
   </EditionEntry>
 </Chapters>
 ```
-
-![Subtitle Drag](img/46-ch.png)
 
 #### Remux para la mayoría de Smart TVs y preparación para Apple TV
 
