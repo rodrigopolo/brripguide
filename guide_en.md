@@ -172,6 +172,28 @@ After naming your chapters save your chapter xml file by clicking on the "`Chapt
 
 ![Subtitle Drag](img/46-ch.png)
 
+
+Update: The latest version of `MKVToolNix` doesn't convert the `chap.txt` automaticaly, nevertheless, you can use a text editor like Sublime Text to convert it using the multi-line edition.
+
+```txt
+00:00:00.000 CH1
+00:02:30.500 CH2
+00:03:45.750 CH3
+
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE Chapters SYSTEM "matroskachapters.dtd"> -->
+<Chapters>
+  <EditionEntry>
+    <ChapterAtom><ChapterTimeStart>00:00:00.000</ChapterTimeStart><ChapterDisplay><ChapterString>CH1</ChapterString></ChapterDisplay></ChapterAtom>
+    <ChapterAtom><ChapterTimeStart>00:02:30.500</ChapterTimeStart><ChapterDisplay><ChapterString>CH2</ChapterString></ChapterDisplay></ChapterAtom>
+    <ChapterAtom><ChapterTimeStart>00:03:45.750</ChapterTimeStart><ChapterDisplay><ChapterString>CH3</ChapterString></ChapterDisplay></ChapterAtom>
+  </EditionEntry>
+</Chapters>
+```
+
 #### Remux for most Smart TVs and preparing for Apple TV
 
 This MKV file will include an arrangement of the tracks in the following order:

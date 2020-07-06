@@ -173,6 +173,27 @@ Ahora depende de tí si deseas nombrar tus capítulos como `Chapter 1`, `Chapter
 
 Luego de nombrar tus capítulos guarda el archivo XML de capítulos haciendo clic en el menú "`Chapter Editor->Save as`", yo utilicé el nombre de archivo `chap.xml`.
 
+Actualización: La nueva versión de `MKVToolNix` no transforma automáticamente el archivo `chap.txt`, sin embargo, con un editor como Sublime Text, se puede convertir fácilmente en XML usando el editor multi-línea.
+
+```txt
+00:00:00.000 CH1
+00:02:30.500 CH2
+00:03:45.750 CH3
+
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE Chapters SYSTEM "matroskachapters.dtd"> -->
+<Chapters>
+  <EditionEntry>
+    <ChapterAtom><ChapterTimeStart>00:00:00.000</ChapterTimeStart><ChapterDisplay><ChapterString>CH1</ChapterString></ChapterDisplay></ChapterAtom>
+    <ChapterAtom><ChapterTimeStart>00:02:30.500</ChapterTimeStart><ChapterDisplay><ChapterString>CH2</ChapterString></ChapterDisplay></ChapterAtom>
+    <ChapterAtom><ChapterTimeStart>00:03:45.750</ChapterTimeStart><ChapterDisplay><ChapterString>CH3</ChapterString></ChapterDisplay></ChapterAtom>
+  </EditionEntry>
+</Chapters>
+```
+
 ![Subtitle Drag](img/46-ch.png)
 
 #### Remux para la mayoría de Smart TVs y preparación para Apple TV
