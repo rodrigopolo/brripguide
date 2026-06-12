@@ -69,4 +69,4 @@ To create the SRT subtitles from a Blu-ray disc:
 * When the OCR proccess ends it stays on the last subtitle, click the `Ok` button.
 * Save your SRT file, use `Unicode (UTF-8)` Encoding.
 
-If you find this information useful, you can support by donating on [this link](http://rodrigopolo.com/about/wp-stream-video/donate).
+If you find this information useful, you can support by donating on [this link](https://www.paypal.com/paypalme/RodrigoPolo).

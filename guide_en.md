@@ -3,7 +3,7 @@
 #### Update 2016
 * I have found a simpler way for converting the subtitles and encoding half-side-by-side 3D video, check [this update](update.md).
 * [This suckers](http://best-tablet-converter.com/2014/11/22/ultimate-3d-blu-ray-ripping/) are stealing my title and images.
-* If you find this information useful, you can support by donating on [this link](http://rodrigopolo.com/about/wp-stream-video/donate).
+* If you find this information useful, you can support by donating on [this link](https://www.paypal.com/paypalme/RodrigoPolo).
 
 ### Purpose of this guide
 The purpose of this guide is to share the knowhow of video encoding so you can create a backup copy of your own Blu-ray Discs and watch your movies on a wider range of devices that doesn't support or have a Blu-ray Disc drive using almost only free/libre software.

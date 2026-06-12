@@ -4,7 +4,7 @@
 
 * Encontré una forma más simple de convertir los subtítulos y de codificar vídeo 3D, ver la [actualización](update.md) **en inglés**.
 * [Estos idiotas](http://best-tablet-converter.com/2014/11/22/ultimate-3d-blu-ray-ripping/) se están robando mi título e imágenes.
-* Si encuentras esta información útil, puedes apoyar donando [en este vínculo](http://rodrigopolo.com/about/wp-stream-video/donate).
+* Si encuentras esta información útil, puedes apoyar donando [en este vínculo](https://www.paypal.com/paypalme/RodrigoPolo).
 
 
 ### Propósito
